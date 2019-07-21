@@ -1,0 +1,31 @@
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100 p-l-50 p-r-50 p-t-25 p-b-30">
+      <form [formGroup]="registerForm" class="login100-form">
+        <span class="login100-form-title p-b-55">ثبت نام</span>
+
+        <div class="wrap-input100 validate-input m-b-16">
+          <input [formControl]="emailControl"
+            class="input100 {{emailControl.valid || emailControl.untouched? 'input-success ng-touched': 'input-danger'}}"
+            type="text" name="email" placeholder="ایمیل">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+            <span class="lnr lnr-envelope"></span>
+          </span>
+        </div>
+        <div class="error-container" [hidden]="emailControl.valid || emailControl.untouched">
+          <div class="text-danger vazir-font text-right mt-2" [hidden]="!emailControl.hasError('required')">لطفا ایمیل
+            را وارد نمایید</div>
+          <div class="text-danger vazir-font text-right mt-2" [hidden]="!emailControl.hasError('email')">ایمیل خود را به
+            صورت صحیح وارد نمایید</div>
+        </div>
+
+        <div class="container-login100-form-btn p-t-25">
+          <button (click)="sendEmail()" [disabled]="!registerForm.valid" class="login100-form-btn">
+            ارسال ایمیل
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
